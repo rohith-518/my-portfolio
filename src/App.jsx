@@ -10,14 +10,15 @@ import {
 const portfolioData = {
   name: "Rohith Perisetti",
   role: "Web Developer",
-  email: "rohithperisetti4@gmail.com", // Mee Email ikkada undali
+  email: "rohithperisetti4@gmail.com",
   
+  // Resume Link
   resume: "/resume.pdf", 
 
   social: {
     linkedin: "https://www.linkedin.com/in/rohith-perisetti",
     github: "https://github.com/rohith-518",
-    gfg: "https://auth.geeksforgeeks.org/user/rohithperisetti4"
+    gfg: "https://www.geeksforgeeks.org/user/rohithperisetti4/"
   },
 
   projects: [
@@ -132,17 +133,19 @@ function App() {
 
       {/* HERO SECTION */}
       <section className="pt-32 pb-20 px-6 flex flex-col items-center justify-center text-center min-h-screen relative overflow-hidden">
-        <div className={`absolute top-20 left-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob ${darkMode ? 'bg-purple-600' : 'bg-purple-300'}`}></div>
-        <div className={`absolute bottom-20 right-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000 ${darkMode ? 'bg-blue-600' : 'bg-blue-300'}`}></div>
         
-        <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="relative w-48 h-48 mb-8">
+        {/* FIX: Added 'pointer-events-none' so colors don't block clicks */}
+        <div className={`absolute top-20 left-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob pointer-events-none ${darkMode ? 'bg-purple-600' : 'bg-purple-300'}`}></div>
+        <div className={`absolute bottom-20 right-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000 pointer-events-none ${darkMode ? 'bg-blue-600' : 'bg-blue-300'}`}></div>
+        
+        <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="relative z-10 w-48 h-48 mb-8">
           <div className="w-full h-full rounded-full overflow-hidden border-4 border-transparent bg-clip-padding p-1 bg-gradient-to-tr from-blue-500 to-purple-600">
              <img src="/profile.jpg" alt="Profile" className="w-full h-full rounded-full object-cover bg-slate-800" onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='flex'}} />
              <div className="hidden w-full h-full bg-slate-800 items-center justify-center"><User size={60} /></div>
           </div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative z-10">
           <h2 className="text-lg font-medium text-blue-500 mb-2 uppercase">Hello, I'm</h2>
           <h1 className="text-5xl md:text-7xl font-extrabold mb-4">{portfolioData.name}</h1>
           <p className={`text-2xl font-medium mb-8 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>{portfolioData.role}</p>
@@ -151,24 +154,25 @@ function App() {
             <a 
               href={portfolioData.resume} 
               download="Rohith_Resume.pdf"
-              className="px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg shadow-blue-500/30 transition-all hover:scale-105 flex items-center gap-2 cursor-pointer"
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg shadow-blue-500/30 transition-all hover:scale-105 flex items-center gap-2 cursor-pointer z-50 relative"
             >
               <Download size={20}/> Download CV
             </a>
             
-            {/* UPDATED: MAILTO LINK */}
             <a 
               href={`mailto:${portfolioData.email}`} 
-              className={`px-8 py-3 rounded-full font-bold border-2 transition-all hover:scale-105 cursor-pointer flex items-center ${darkMode ? 'border-slate-700 hover:bg-slate-800' : 'border-gray-300 hover:bg-gray-100'}`}
+              className={`px-8 py-3 rounded-full font-bold border-2 transition-all hover:scale-105 cursor-pointer flex items-center z-50 relative ${darkMode ? 'border-slate-700 hover:bg-slate-800' : 'border-gray-300 hover:bg-gray-100'}`}
             >
               Contact Info
             </a>
           </div>
 
-          <div className="flex justify-center gap-6">
-            <SocialLink href={portfolioData.social.linkedin} icon={<Linkedin size={24} />} darkMode={darkMode} />
-            <SocialLink href={portfolioData.social.github} icon={<Github size={24} />} darkMode={darkMode} />
-            <SocialLink href={portfolioData.social.gfg} icon={<Code size={24} />} darkMode={darkMode} />
+          <div className="flex justify-center gap-6 relative z-50">
+            <SocialLink href={portfolioData.social.linkedin} icon={<Linkedin size={24} />} darkMode={darkMode} label="LinkedIn" />
+            <SocialLink href={portfolioData.social.github} icon={<Github size={24} />} darkMode={darkMode} label="GitHub" />
+            <SocialLink href={portfolioData.social.gfg} icon={<Code size={24} />} darkMode={darkMode} label="GeeksforGeeks" />
           </div>
         </motion.div>
       </section>
@@ -246,14 +250,13 @@ function App() {
         </div>
       </section>
 
-      {/* CONTACT (WITH YOUR KEY) */}
+      {/* CONTACT */}
       <section id="contact" className="py-20 px-6 scroll-mt-28">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-10">Get in Touch</h2>
           <div className={`p-8 rounded-3xl border-2 text-left ${darkMode ? 'bg-slate-950 border-slate-800' : 'bg-white border-gray-100 shadow-xl'}`}>
             <form action="https://api.web3forms.com/submit" method="POST" className="flex flex-col gap-6">
               
-              {/* --- ACCESS KEY --- */}
               <input type="hidden" name="access_key" value="7608933c-b02e-42ee-b15c-af2302feb105" />
 
               <div><label className="block text-sm font-medium mb-2 pl-1">Full Name</label><input type="text" name="name" required placeholder="Enter name" className={`w-full p-4 rounded-xl border-2 outline-none ${darkMode ? 'bg-slate-900 border-slate-800 focus:border-blue-500' : 'bg-gray-50 border-gray-200 focus:border-blue-500'}`} /></div>
@@ -272,8 +275,14 @@ function App() {
   );
 }
 
-const SocialLink = ({ href, icon, darkMode }) => (
-  <a href={href} target="_blank" rel="noopener noreferrer" className={`p-4 rounded-full transition-all hover:-translate-y-1 ${darkMode ? 'bg-slate-800 hover:bg-blue-600 text-white' : 'bg-white shadow-md hover:bg-blue-500 hover:text-white text-slate-700'}`}>
+const SocialLink = ({ href, icon, darkMode, label }) => (
+  <a 
+    href={href} 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    title={label}
+    className={`p-4 rounded-full transition-all hover:-translate-y-1 ${darkMode ? 'bg-slate-800 hover:bg-blue-600 text-white' : 'bg-white shadow-md hover:bg-blue-500 hover:text-white text-slate-700'}`}
+  >
     {icon}
   </a>
 );
