@@ -18,7 +18,8 @@ const portfolioData = {
   social: {
     linkedin: "https://www.linkedin.com/in/rohith-perisetti",
     github: "https://github.com/rohith-518",
-    gfg: "https://www.geeksforgeeks.org/user/rohithperisetti4/"
+    // UPDATED GFG LINK HERE:
+    gfg: "https://www.geeksforgeeks.org/profile/rohithperyp06?tab=activity"
   },
 
   projects: [
@@ -27,7 +28,6 @@ const portfolioData = {
       img: "/ecommerce.png",
       desc: "Responsive e-commerce site with product listings and cart.",
       tags: ["React", "Redux"],
-      // UPDATED LINK HERE:
       live: "https://shoppingwebsite-omega-eight.vercel.app/",
       code: "https://github.com/rohith-518"
     },
