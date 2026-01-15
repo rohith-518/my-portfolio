@@ -18,7 +18,8 @@ const portfolioData = {
   social: {
     linkedin: "https://www.linkedin.com/in/rohith-perisetti",
     github: "https://github.com/rohith-518",
-    gfg: "https://www.geeksforgeeks.org/user/rohithperisetti4/"
+    // UPDATED GFG LINK HERE:
+    gfg: "https://www.geeksforgeeks.org/profile/rohithperyp06?tab=activity"
   },
 
   projects: [
@@ -27,7 +28,7 @@ const portfolioData = {
       img: "/ecommerce.png",
       desc: "Responsive e-commerce site with product listings and cart.",
       tags: ["React", "Redux"],
-      live: "https://commerce-project.netlify.app/",
+      live: "https://shoppingwebsite-omega-eight.vercel.app/",
       code: "https://github.com/rohith-518"
     },
     {
@@ -134,7 +135,7 @@ function App() {
       {/* HERO SECTION */}
       <section className="pt-32 pb-20 px-6 flex flex-col items-center justify-center text-center min-h-screen relative overflow-hidden">
         
-        {/* FIX: Added 'pointer-events-none' so colors don't block clicks */}
+        {/* Animated Background Blobs */}
         <div className={`absolute top-20 left-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob pointer-events-none ${darkMode ? 'bg-purple-600' : 'bg-purple-300'}`}></div>
         <div className={`absolute bottom-20 right-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000 pointer-events-none ${darkMode ? 'bg-blue-600' : 'bg-blue-300'}`}></div>
         
