@@ -16,7 +16,7 @@ const portfolioData = {
   resume: "/resume.pdf", 
 
   social: {
-    linkedin: "https://www.linkedin.com/in/rohith-perisetti",
+    linkedin: "https://www.linkedin.com/in/rohithperisetti",
     github: "https://github.com/rohith-518",
     // UPDATED GFG LINK HERE:
     gfg: "https://www.geeksforgeeks.org/profile/rohithperyp06?tab=activity"
